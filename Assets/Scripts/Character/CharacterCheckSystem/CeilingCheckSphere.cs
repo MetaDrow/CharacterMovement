@@ -1,23 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class RoofCheckSphere : MonoBehaviour
+internal class CeilingCheckSphere : MonoBehaviour
 {
-    [SerializeField] public LayerMask _ceilingLayerMask;
-    [SerializeField] internal Character _character;
-
-
+    [SerializeField] private LayerMask _ceilingLayerMask;
+    [SerializeField] private Character _character;
 
     private void OnTriggerEnter(Collider other)
     {
         if ((_ceilingLayerMask.value & (1 << other.transform.gameObject.layer)) > 0)
         {
-
-         //   Debug.Log("Hit enter" + other.gameObject.layer);
             _character._isCeiling = true;
-
-
         }
     }
 
@@ -25,15 +17,7 @@ public class RoofCheckSphere : MonoBehaviour
     {
         if ((_ceilingLayerMask.value & (1 << other.transform.gameObject.layer)) > 0)
         {
-
-           // Debug.Log("Hit exit" + other.gameObject.layer);
             _character._isCeiling = false;
-
-
         }
-
     }
-
-
-
 }
