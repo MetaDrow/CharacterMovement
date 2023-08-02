@@ -25,8 +25,6 @@ internal class StandingState : State
     public override void HandleInput()
     {
         base.HandleInput();
-
-        _character._input = _runAction.ReadValue<Vector2>();
         _character._direction = _character._input;
         _character._animator.SetFloat("Direction", _character._currentAnimationBlendVector.x);
     }
@@ -49,16 +47,6 @@ internal class StandingState : State
         {
             _stateMachine.ChangeState(_character._jumpState);
         }
-
-        if (_runAction.triggered)
-        {
-            _character._isRun = true;
-        }
-
-        if (_jumpAction.triggered)
-        {
-            _character._isJump = true;
-        }
     }
 
     public override void PhysicsUpdate()
@@ -69,7 +57,6 @@ internal class StandingState : State
         {
             _character._gravityVelocity.y += _character._gravityValue;
         }
-
         _character._characterController.Move(_character._gravityVelocity * Time.fixedDeltaTime);
     }
 }

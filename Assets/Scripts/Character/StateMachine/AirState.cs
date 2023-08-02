@@ -22,8 +22,6 @@ internal class AirState : State
     public override void HandleInput()
     {
         base.HandleInput();
-
-        _character._input = _runAction.ReadValue<Vector2>();
         _character._direction = _character._input;
     }
 
@@ -31,12 +29,11 @@ internal class AirState : State
     {
         base.LogicUpdate();
 
-        if (_jumpAction.triggered && _character._jumpCount < _character._jumpAmount)
+        if (_character._isJump && _character._jumpCount != _character._jumpAmount)
         {
             _stateMachine.ChangeState(_character._jumpState);
-            _character._jumpCount++;
         }
-
+        
         if (_character._isCeiling)
         {
             _stateMachine.ChangeState(_character._airState);
@@ -78,7 +75,6 @@ internal class AirState : State
         }
 
         _character._velocity = new Vector2(_character._direction.x * _character._currentSpeed, _character._gravityVelocity.y);
-
         _character._characterController.Move(_character._velocity * Time.fixedDeltaTime);
     }
 }

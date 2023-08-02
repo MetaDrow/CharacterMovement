@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using CharacterStateMachine;
-
+﻿using CharacterStateMachine;
 internal class GroundState : State
 {
     public GroundState(Character character, StateMachine stateMachine) : base(character, stateMachine)
@@ -17,12 +15,6 @@ internal class GroundState : State
     public override void Exit()
     {
         base.Exit();
-    }
-
-    public override void HandleInput()
-    {
-        base.HandleInput();
-        _character._input = _runAction.ReadValue<Vector2>();
     }
 
     public override void LogicUpdate()

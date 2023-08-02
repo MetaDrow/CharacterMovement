@@ -1,6 +1,6 @@
 using UnityEngine;
 
-internal class CeilingCheckSphere : MonoBehaviour
+public class CeilingCheckSphere : MonoBehaviour
 {
     [SerializeField] private LayerMask _ceilingLayerMask;
     [SerializeField] private Character _character;
@@ -18,6 +18,7 @@ internal class CeilingCheckSphere : MonoBehaviour
         if ((_ceilingLayerMask.value & (1 << other.transform.gameObject.layer)) > 0)
         {
             _character._isCeiling = false;
+
         }
     }
 }

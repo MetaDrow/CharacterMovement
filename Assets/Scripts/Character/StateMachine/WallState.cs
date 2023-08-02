@@ -3,8 +3,8 @@ using CharacterStateMachine;
 
 internal class WallState : State
 {
-    float _slideForce;
-    int _autoSlideTime = 50;
+    private float _slideForce;
+    private int _autoSlideTime = 50;
     internal WallState(Character character, StateMachine stateMachine) : base(character, stateMachine)
     {
     }
@@ -12,7 +12,6 @@ internal class WallState : State
     public override void Enter()
     {
         base.Enter();
-
         _character._isWall = true;
         _character._jumpCount = 0;
         _character._animator.SetBool("Wall", true);
@@ -22,7 +21,6 @@ internal class WallState : State
     public override void Exit()
     {
         base.Exit();
-
         _character._isWall = false;
         _autoSlideTime = 50;
         _character._animator.SetBool("Wall", false);
@@ -31,8 +29,6 @@ internal class WallState : State
     public override void HandleInput()
     {
         base.HandleInput();
-
-        _character._input = _runAction.ReadValue<Vector2>();
         _character._direction = _character._input;
     }
 
@@ -56,7 +52,7 @@ internal class WallState : State
     {
         base.LogicUpdate();
 
-        if (_jumpAction.triggered)
+        if (_character._isJump)
         {
             _stateMachine.ChangeState(_character._jumpState);
         }
@@ -64,18 +60,19 @@ internal class WallState : State
 
     void Slide()
     {
-        if (!_character._isWall && !_jumpAction.triggered)
+        
+        if (!_character._isWall && !_character._isJump)
         {
             _stateMachine.ChangeState(_character._groundState);
         }
-
+        
         _character._velocity = new Vector3(0, _character._direction.y * _character._maxSpeed);
         _character._characterController.Move(_character._velocity * Time.fixedDeltaTime);
     }
 
     void SlideDown()
     {
-        if (_character._isWall && !_jumpAction.triggered)
+        if (_character._isWall && !_character._isJump)
         {
             _character._velocity = new Vector3(0, _slideForce);
             _character._characterController.Move(_character._velocity * Time.fixedDeltaTime);
@@ -88,6 +85,7 @@ internal class WallState : State
 
     void AutoSlideTimer()
     {
+
         if (_autoSlideTime != 0)
         {
             _autoSlideTime--;

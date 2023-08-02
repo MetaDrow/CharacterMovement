@@ -3,6 +3,7 @@ using UnityEngine;
 internal class GroundCheckSphere : MonoBehaviour
 {
     [SerializeField] private LayerMask _groundLayerMask;
+    [SerializeField] private float _groundSphereRadius;
     [SerializeField] private Character _character;
 
     private void OnTriggerStay(Collider other)
@@ -21,4 +22,3 @@ internal class GroundCheckSphere : MonoBehaviour
         }
     }
 }
-

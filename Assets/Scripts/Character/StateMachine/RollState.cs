@@ -3,7 +3,7 @@ using CharacterStateMachine;
 
 internal class RollState : State
 {
-    int _rollStateTime;
+    private int _rollStateTime;
     public RollState(Character character, StateMachine stateMachine) : base(character, stateMachine)
     {
     }
@@ -11,24 +11,18 @@ internal class RollState : State
     public override void Enter()
     {
         base.Enter();
-
         _character._animator.SetBool("Roll", true);
-        _rollStateTime = _character._rollTime;
         _character._isRoll = true;
+        _rollStateTime = _character._rollTime;
     }
-
     public override void HandleInput()
     {
         base.HandleInput();
-
-        _character._input = _runAction.ReadValue<Vector2>();
         _character._direction = _character._input;
     }
-
     public override void Exit()
     {
         base.Exit();
-
         _character._rollTime = _rollStateTime;
         _character._isRoll = false;
         _character._animator.SetBool("Roll", false);
@@ -43,6 +37,7 @@ internal class RollState : State
         base.LogicUpdate();
 
         RollTime();
+
         if (_character._isRoll && _character._rollTime != 0)
         {
             _character._characterController.height = 0.5f;
