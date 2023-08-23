@@ -9,32 +9,23 @@ internal class RunState : State
 
     public override void Enter()
     {
-        base.Enter();
-
         _character._gravityVelocity.y = _character._gravityValue;
-
     }
 
     public override void HandleInput()
     {
-        base.HandleInput();
         _character._direction = _character._input;
-
         _character._currentAnimationBlendVector = Vector2.LerpUnclamped(_character._currentAnimationBlendVector, _character._input * _character._direction, _character._acceleration);
         _character._animator.SetFloat("Direction", _character._currentAnimationBlendVector.x);
     }
 
     public override void Exit()
     {
-        base.Exit();
-
         _character._isRun = false;
         _character._gravityVelocity = Vector2.zero;
     }
     public override void LogicUpdate()
     {
-        base.LogicUpdate();
-
         if (_character._isWall)
         {
             _stateMachine.ChangeState(_character._wallState);
@@ -69,9 +60,6 @@ internal class RunState : State
 
     public override void PhysicsUpdate()
     {
-        base.LogicUpdate();
-
-
         if (_character._currentSpeed < _character._maxSpeed && _character._direction.x != 0)
         {
             _character._currentSpeed += _character._acceleration;

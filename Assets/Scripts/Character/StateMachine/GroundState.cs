@@ -7,24 +7,12 @@ internal class GroundState : State
 
     public override void Enter()
     {
-        base.Enter();
         _character._jumpCount = 0;
         _character._gravityVelocity.y = _character._gravityValue;
     }
 
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
-    public override void LogicUpdate()
-    {
-        base.LogicUpdate();
-    }
-
     public override void PhysicsUpdate()
     {
-        base.PhysicsUpdate();
 
         if (!_character._isGrounded)
         {

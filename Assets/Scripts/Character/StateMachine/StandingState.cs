@@ -8,8 +8,6 @@ internal class StandingState : State
 
     public override void Enter()
     {
-        base.Enter();
-
         _character._isRun = false;
         _character._currentAnimationBlendVector = Vector2.zero;
         _character._currentSpeed = 0f;
@@ -17,22 +15,14 @@ internal class StandingState : State
         _character._gravityVelocity = Vector3.zero;
     }
 
-    public override void Exit()
-    {
-        base.Exit();
-    }
-
     public override void HandleInput()
     {
-        base.HandleInput();
         _character._direction = _character._input;
         _character._animator.SetFloat("Direction", _character._currentAnimationBlendVector.x);
     }
 
     public override void LogicUpdate()
     {
-        base.LogicUpdate();
-
         if (!_character._isGrounded)
         {
             _stateMachine.ChangeState(_character._airState);
@@ -51,8 +41,6 @@ internal class StandingState : State
 
     public override void PhysicsUpdate()
     {
-        base.PhysicsUpdate();
-
         if (_character._gravityVelocity.y != _character._gravityValue)
         {
             _character._gravityVelocity.y += _character._gravityValue;

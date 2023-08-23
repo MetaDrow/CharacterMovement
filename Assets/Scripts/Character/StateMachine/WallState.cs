@@ -11,7 +11,6 @@ internal class WallState : State
 
     public override void Enter()
     {
-        base.Enter();
         _character._isWall = true;
         _character._jumpCount = 0;
         _character._animator.SetBool("Wall", true);
@@ -20,7 +19,6 @@ internal class WallState : State
     }
     public override void Exit()
     {
-        base.Exit();
         _character._isWall = false;
         _autoSlideTime = 50;
         _character._animator.SetBool("Wall", false);
@@ -28,14 +26,11 @@ internal class WallState : State
 
     public override void HandleInput()
     {
-        base.HandleInput();
         _character._direction = _character._input;
     }
 
     public override void PhysicsUpdate()
     {
-        base.PhysicsUpdate();
-
         AutoSlideTimer();
 
         if (_character._velocity.x != _character._direction.x * _character._maxSpeed)
@@ -50,7 +45,6 @@ internal class WallState : State
     }
     public override void LogicUpdate()
     {
-        base.LogicUpdate();
 
         if (_character._isJump)
         {
@@ -60,7 +54,6 @@ internal class WallState : State
 
     void Slide()
     {
-        
         if (!_character._isWall && !_character._isJump)
         {
             _stateMachine.ChangeState(_character._groundState);

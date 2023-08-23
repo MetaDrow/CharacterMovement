@@ -9,25 +9,21 @@ internal class AirState : State
 
     public override void Enter()
     {
-        base.Enter();
         _character._animator.SetBool("Jump", true);
     }
 
     public override void Exit()
     {
-        base.Exit();
         _character._animator.SetBool("Jump", false);
     }
 
     public override void HandleInput()
     {
-        base.HandleInput();
         _character._direction = _character._input;
     }
 
     public override void LogicUpdate()
     {
-        base.LogicUpdate();
 
         if (_character._isJump && _character._jumpCount != _character._jumpAmount)
         {
@@ -57,7 +53,6 @@ internal class AirState : State
 
     public override void PhysicsUpdate()
     {
-        base.PhysicsUpdate();
 
         if (_character._isWall)
         {
