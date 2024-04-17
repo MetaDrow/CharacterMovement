@@ -9,7 +9,7 @@ internal class Character : MonoBehaviour
     protected internal StateMachine _stateMachine;
     protected internal Animator _animator;
 
-    #region  Properties
+    #region  Field
     [Header("Movement Parameters")]
     [SerializeField, Range(0, 1)] protected internal float _acceleration;
     [SerializeField, Range(0, 15)] protected internal float _maxSpeed;
@@ -46,9 +46,9 @@ internal class Character : MonoBehaviour
     [SerializeField] protected internal bool _isJump;
     [SerializeField] protected internal int _jumpCount;
 
-    #endregion
 
-    #region  State
+
+    #region  State 
     protected internal StandingState _standingState;
     protected internal GroundState _groundState;
     protected internal JumpState _jumpState;
@@ -60,6 +60,8 @@ internal class Character : MonoBehaviour
     protected internal DeathState _deathState;
     #endregion
 
+
+    #endregion
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();

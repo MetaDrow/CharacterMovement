@@ -4,6 +4,7 @@
     {
         protected internal State _currentState { get; set; }
 
+
         protected internal void Initialize(State startState)
         {
             _currentState = startState;

@@ -809,7 +809,6 @@ GameObject:
   - component: {fileID: 7586731778235716687}
   - component: {fileID: 7586731778235716685}
   - component: {fileID: 7586731778235716686}
-  - component: {fileID: 7586731778235716681}
   - component: {fileID: 7586731778235716680}
   m_Layer: 0
   m_Name: 'Character '
@@ -878,7 +877,6 @@ MonoBehaviour:
   _jumpAmount: 2
   _isJump: 0
   _jumpCount: 0
-  _isDeath: 0
 --- !u!143 &7586731778235716687
 CharacterController:
   m_ObjectHideFlags: 0
@@ -993,22 +991,6 @@ MonoBehaviour:
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &7586731778235716681
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7586731778235716678}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86fd11db5ccf17b43972c22ad166b29b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startingHealth: 100
-  _maxHealth: 100
-  _currentHealth: 0
-  _characterHealth: 0
 --- !u!114 &7586731778235716680
 MonoBehaviour:
   m_ObjectHideFlags: 0
