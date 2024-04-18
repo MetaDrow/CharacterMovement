@@ -19,7 +19,7 @@ internal class AirState : State
 
     public override void HandleInput()
     {
-        _character._direction = _character._input;
+
     }
 
     public override void LogicUpdate()

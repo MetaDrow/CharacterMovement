@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using CharacterStateMachine;
 
+
 internal class RunState : State
 {
     public RunState(Character character, StateMachine stateMachine) : base(character, stateMachine)
@@ -14,8 +15,7 @@ internal class RunState : State
 
     public override void HandleInput()
     {
-        _character._direction = _character._input;
-        _character._currentAnimationBlendVector = Vector2.LerpUnclamped(_character._currentAnimationBlendVector, _character._input * _character._direction, _character._acceleration);
+        _character._currentAnimationBlendVector = Vector2.LerpUnclamped(_character._currentAnimationBlendVector, _character._direction, _character._acceleration);
         _character._animator.SetFloat("Direction", _character._currentAnimationBlendVector.x);
     }
 
@@ -51,7 +51,7 @@ internal class RunState : State
             _character._characterController.transform.rotation = Quaternion.LookRotation(new Vector3(_character._direction.x, 0, 0));
         }
 
-        if (_character._input.x == 0)
+        if (_character._direction.x == 0)
         {
             _stateMachine.ChangeState(_character._standingState);
         }

@@ -809,7 +809,7 @@ GameObject:
   - component: {fileID: 7586731778235716687}
   - component: {fileID: 7586731778235716685}
   - component: {fileID: 7586731778235716686}
-  - component: {fileID: 7586731778235716680}
+  - component: {fileID: 7510991945500044276}
   m_Layer: 0
   m_Name: 'Character '
   m_TagString: Player
@@ -862,7 +862,6 @@ MonoBehaviour:
   _direction: {x: 0, y: 0}
   _velocity: {x: 0, y: 0}
   _wallClimb: {x: 0, y: 0}
-  _input: {x: 0, y: 0}
   _isGrounded: 0
   _isWallTop: 0
   _isWall: 0
@@ -928,7 +927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: ecae93fa77d762946a32b6274eb66234,
+  m_Actions: {fileID: -944628639613478452, guid: ee00b0755a85cf34ead11ef25a0b0bbd,
     type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
@@ -991,7 +990,7 @@ MonoBehaviour:
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &7586731778235716680
+--- !u!114 &7510991945500044276
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

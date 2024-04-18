@@ -4,6 +4,7 @@ internal class StandingState : State
 {
     protected internal StandingState(Character character, StateMachine stateMachine) : base(character, stateMachine)
     {
+
     }
 
     public override void Enter()
@@ -17,7 +18,7 @@ internal class StandingState : State
 
     public override void HandleInput()
     {
-        _character._direction = _character._input;
+
         _character._animator.SetFloat("Direction", _character._currentAnimationBlendVector.x);
     }
 

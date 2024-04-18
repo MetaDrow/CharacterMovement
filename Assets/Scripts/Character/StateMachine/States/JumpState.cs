@@ -30,7 +30,7 @@ internal class JumpState : State
 
     public override void HandleInput()
     {
-        _character._direction = _character._input;
+       // _character._direction = _character._input;
     }
 
     public override void PhysicsUpdate()

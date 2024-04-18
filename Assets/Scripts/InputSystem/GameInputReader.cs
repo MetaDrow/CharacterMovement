@@ -2,12 +2,11 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[CreateAssetMenu(fileName = "InputReader", menuName = "ScriptsSO/InputReader")]
-public class GameInputReaderSO : ScriptableObject, GameInput.IGameplayActions
+[CreateAssetMenu(menuName = "Scriptable Object/Game Input Reader")]
+public class GameInputReader : ScriptableObject, GameInput.IGameplayActions
 {
     private GameInput _gameInput;
-
-    public event Action<Vector2> MovementEvent;
+    public event Action<Vector2> MoveEvent;
     public event Action JumpEvent;
     public event Action RollEvent;
 
@@ -23,16 +22,15 @@ public class GameInputReaderSO : ScriptableObject, GameInput.IGameplayActions
         }
     }
 
-    public void SetGameplay()
+    private void SetGameplay()
     {
         _gameInput.Gameplay.Enable();
     }
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        MovementEvent?.Invoke(context.ReadValue<Vector2>());
+        MoveEvent?.Invoke(context.ReadValue<Vector2>());
     }
-
     public void OnJump(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)

@@ -1,9 +1,9 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Character))]
-public class InputController : MonoBehaviour
+[CreateAssetMenu(menuName = "Scriptable Object/Input Reader")]
+public class CharacterInputController : MonoBehaviour
 {
-    [SerializeField] private GameInputReaderSO _input;
+    [SerializeField] private GameInputReader _input;
     private Character _character;
 
     private void Awake()
@@ -14,7 +14,7 @@ public class InputController : MonoBehaviour
     private void OnEnable()
     {
         _input.JumpEvent += HandleJump;
-        _input.MovementEvent += HandleMove;
+        _input.MoveEvent += HandleMove;
         _input.RollEvent += HandleRoll;
 
     }
@@ -22,7 +22,7 @@ public class InputController : MonoBehaviour
     private void OnDisable()
     {
         _input.JumpEvent -= HandleJump;
-        _input.MovementEvent -= HandleMove;
+        _input.MoveEvent -= HandleMove;
         _input.RollEvent -= HandleRoll;
 
     }
@@ -37,7 +37,7 @@ public class InputController : MonoBehaviour
 
     private void HandleMove(Vector2 input)
     {
-        _character._input = input;
+        _character._direction = input;
         _character._isRun = true;
     }
 }

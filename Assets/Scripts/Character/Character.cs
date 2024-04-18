@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
 using CharacterStateMachine;
+using Zenject;
 
-[RequireComponent(typeof(CharacterController), typeof(Animator))]
+//[RequireComponent(typeof(CharacterController), typeof(Animator))]
 internal class Character : MonoBehaviour
 {
+
     protected internal CharacterController _characterController;
     protected internal StateMachine _stateMachine;
     protected internal Animator _animator;
@@ -25,7 +27,6 @@ internal class Character : MonoBehaviour
     [SerializeField] protected internal Vector2 _direction;
     [SerializeField] protected internal Vector2 _velocity;
     [SerializeField] protected internal Vector2 _wallClimb;
-    [SerializeField] internal protected Vector2 _input;
     protected internal Vector2 _currentAnimationBlendVector;
 
 
@@ -59,6 +60,7 @@ internal class Character : MonoBehaviour
     protected internal RollState _rollState;
     protected internal DeathState _deathState;
     #endregion
+
 
 
     #endregion
