@@ -1,12 +1,9 @@
 using System;
 using UnityEngine;
 using CharacterStateMachine;
-using Zenject;
 
-//[RequireComponent(typeof(CharacterController), typeof(Animator))]
 internal class Character : MonoBehaviour
 {
-
     protected internal CharacterController _characterController;
     protected internal StateMachine _stateMachine;
     protected internal Animator _animator;

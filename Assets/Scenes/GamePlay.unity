@@ -810,8 +810,8 @@ MonoBehaviour:
   _character: {fileID: 7586731778235716678, guid: c24288cba084b5240a4dbd0fe3e5a967,
     type: 3}
   _characterTransform: {fileID: 991541149}
-  _camera: {fileID: 1871530434504211978, guid: a89b6cc0bbdb14b429e0bc19f49efe59, type: 3}
-  _cameraTransform: {fileID: 1228715668}
+  _characterCamera: {fileID: 1871530434504211978, guid: a89b6cc0bbdb14b429e0bc19f49efe59,
+    type: 3}
 --- !u!1 &1132502136
 GameObject:
   m_ObjectHideFlags: 0
