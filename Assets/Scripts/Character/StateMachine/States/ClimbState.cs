@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-using CharacterStateMachine;
-internal class ClimbState : State
+using CharacterFiniteStateMachine;
+internal class ClimbState : CharacterState
 {
-    public ClimbState(Character character, StateMachine stateMachine) : base(character, stateMachine)
+    public ClimbState(Character character, CharacterStateMachine stateMachine) : base(character, stateMachine)
     {
     }
 
@@ -18,7 +18,7 @@ internal class ClimbState : State
 
     public override void LogicUpdate()
     {
-        if (_character._isGrounded)
+        if (_character._characterData._isGrounded)
         {
             _stateMachine.ChangeState(_character._groundState);
         }
@@ -26,8 +26,8 @@ internal class ClimbState : State
 
     public override void PhysicsUpdate()
     {
-        _character._wallClimb = new Vector3(_character._direction.x * _character._climbForceX, _character._climbForceY);
-        _character._characterController.Move(_character._wallClimb * Time.fixedDeltaTime);
+        _character._characterData._wallClimb = new Vector3(_character._characterData._direction.x * _character._characterData._climbForceX, _character._characterData._climbForceY);
+        _character._characterController.Move(_character._characterData._wallClimb * Time.fixedDeltaTime);
     }
 }
 

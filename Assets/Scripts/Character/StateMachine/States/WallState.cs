@@ -1,25 +1,24 @@
 ﻿using UnityEngine;
-using CharacterStateMachine;
-
-internal class WallState : State
+using CharacterFiniteStateMachine;
+internal class WallState : CharacterState
 {
     private float _slideForce;
     private int _autoSlideTime = 50;
-    internal WallState(Character character, StateMachine stateMachine) : base(character, stateMachine)
+    internal WallState(Character character, CharacterStateMachine stateMachine) : base(character, stateMachine)
     {
     }
 
     public override void Enter()
     {
-        _character._isWall = true;
-        _character._jumpCount = 0;
+        _character._characterData._isWall = true;
+        _character._characterData._jumpCount = 0;
         _character._animator.SetBool("Wall", true);
-        _character._gravityVelocity.y = _character._gravityValue;
+        _character._characterData._gravityVelocity.y = _character._characterData._gravityValue;
         _slideForce = -5f;
     }
     public override void Exit()
     {
-        _character._isWall = false;
+        _character._characterData._isWall = false;
         _autoSlideTime = 50;
         _character._animator.SetBool("Wall", false);
     }
@@ -33,12 +32,12 @@ internal class WallState : State
     {
         AutoSlideTimer();
 
-        if (_character._velocity.x != _character._direction.x * _character._maxSpeed)
+        if (_character._characterData._velocity.x != _character._characterData._direction.x * _character._characterData._maxSpeed)
         {
-            _character._velocity.x = _character._direction.x * _character._maxSpeed;
+            _character._characterData._velocity.x = _character._characterData._direction.x * _character._characterData._maxSpeed;
         }
 
-        if (_character._direction.y < 0)
+        if (_character._characterData._direction.y < 0)
         {
             Slide();
         }
@@ -46,7 +45,7 @@ internal class WallState : State
     public override void LogicUpdate()
     {
 
-        if (_character._isJump)
+        if (_character._characterData._isJump)
         {
             _stateMachine.ChangeState(_character._jumpState);
         }
@@ -54,21 +53,21 @@ internal class WallState : State
 
     void Slide()
     {
-        if (!_character._isWall && !_character._isJump)
+        if (!_character._characterData._isWall && !_character._characterData._isJump)
         {
             _stateMachine.ChangeState(_character._groundState);
         }
-        
-        _character._velocity = new Vector3(0, _character._direction.y * _character._maxSpeed);
-        _character._characterController.Move(_character._velocity * Time.fixedDeltaTime);
+
+        _character._characterData._velocity = new Vector3(0, _character._characterData._direction.y * _character._characterData._maxSpeed);
+        _character._characterController.Move(_character._characterData._velocity * Time.fixedDeltaTime);
     }
 
     void SlideDown()
     {
-        if (_character._isWall && !_character._isJump)
+        if (_character._characterData._isWall && !_character._characterData._isJump)
         {
-            _character._velocity = new Vector3(0, _slideForce);
-            _character._characterController.Move(_character._velocity * Time.fixedDeltaTime);
+            _character._characterData._velocity = new Vector3(0, _slideForce);
+            _character._characterController.Move(_character._characterData._velocity * Time.fixedDeltaTime);
         }
         else
         {

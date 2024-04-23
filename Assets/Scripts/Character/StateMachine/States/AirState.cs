@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
-using CharacterStateMachine;
+using CharacterFiniteStateMachine;
 
-internal class AirState : State
+internal class AirState : CharacterState
 {
-    internal AirState(Character character, StateMachine stateMachine) : base(character, stateMachine)
+    internal AirState(Character character, CharacterStateMachine stateMachine) : base(character, stateMachine)
     {
     }
 
@@ -25,52 +25,52 @@ internal class AirState : State
     public override void LogicUpdate()
     {
 
-        if (_character._isJump && _character._jumpCount != _character._jumpAmount)
+        if (_character._characterData._isJump && _character._characterData._jumpCount != _character._characterData._jumpAmount)
         {
             _stateMachine.ChangeState(_character._jumpState);
         }
         
-        if (_character._isCeiling)
+        if (_character._characterData._isCeiling)
         {
             _stateMachine.ChangeState(_character._airState);
         }
 
-        if (_character._isGrounded)
+        if (_character._characterData._isGrounded)
         {
             _stateMachine.ChangeState(_character._groundState);
         }
 
-        if (_character._isWallTop && _character._direction.x != 0)
+        if (_character._characterData._isWallTop && _character._characterData._direction.x != 0)
         {
             _stateMachine.ChangeState(_character._climbState);
         }
 
-        if (_character._direction.x != 0)
+        if (_character._characterData._direction.x != 0)
         {
-            _character._characterController.transform.rotation = Quaternion.LookRotation(new Vector3(_character._direction.x, 0, 0));
+            _character._characterController.transform.rotation = Quaternion.LookRotation(new Vector3(_character._characterData._direction.x, 0, 0));
         }
     }
 
     public override void PhysicsUpdate()
     {
 
-        if (_character._isWall)
+        if (_character._characterData._isWall)
         {
             _stateMachine.ChangeState(_character._wallState);
         }
 
-        if (_character._gravityVelocity.y > _character._gravityValue)
+        if (_character._characterData._gravityVelocity.y > _character._characterData._gravityValue)
         {
-            _character._gravityVelocity.y += _character._gravityValue * _character._gravityScale * Time.fixedDeltaTime;
+            _character._characterData._gravityVelocity.y += _character._characterData._gravityValue * _character._characterData._gravityScale * Time.fixedDeltaTime;
         }
 
-        if ((_character._currentSpeed < _character._maxSpeed && _character._direction.x > 0f) || _character._currentSpeed < _character._maxSpeed && _character._direction.x < 0f)
+        if ((_character._characterData._currentSpeed < _character._characterData._maxSpeed && _character._characterData._direction.x > 0f) || _character._characterData._currentSpeed < _character._characterData._maxSpeed && _character._characterData._direction.x < 0f)
         {
-            _character._currentSpeed += _character._acceleration;
+            _character._characterData._currentSpeed += _character._characterData._acceleration;
         }
 
-        _character._velocity = new Vector2(_character._direction.x * _character._currentSpeed, _character._gravityVelocity.y);
-        _character._characterController.Move(_character._velocity * Time.fixedDeltaTime);
+        _character._characterData._velocity = new Vector2(_character._characterData._direction.x * _character._characterData._currentSpeed, _character._characterData._gravityVelocity.y);
+        _character._characterController.Move(_character._characterData._velocity * Time.fixedDeltaTime);
     }
 }
 

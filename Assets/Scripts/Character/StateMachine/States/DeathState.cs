@@ -1,8 +1,8 @@
-﻿using CharacterStateMachine;
+﻿using CharacterFiniteStateMachine;
 
-internal class DeathState : State
+internal class DeathState : CharacterState
 {
-    public DeathState(Character character, StateMachine stateMachine) : base(character, stateMachine)
+    public DeathState(Character character, CharacterStateMachine stateMachine) : base(character, stateMachine)
     {
     }
 }

@@ -3,16 +3,16 @@ using Zenject;
 
 public class EntryPoint : MonoBehaviour
 {
-    private SceneLoadHandler _sceneLoadhandler;
+    private SceneLoadHandler _sceneLoadHandler;
 
     [Inject]
     private void Construct(SceneLoadHandler sceneLoadhandler)
     {
-        _sceneLoadhandler = sceneLoadhandler;
+        _sceneLoadHandler = sceneLoadhandler;
     }
 
     private void Start()
     {
-        _sceneLoadhandler.Initialization();
+        _sceneLoadHandler.Initialization();
     }
 }

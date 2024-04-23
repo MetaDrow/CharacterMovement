@@ -1,6 +1,6 @@
 using Zenject;
 
-public class BootstrapInstaller : MonoInstaller
+public class SceneLoadHandlerInstaller : MonoInstaller
 {
     public override void InstallBindings()
     {

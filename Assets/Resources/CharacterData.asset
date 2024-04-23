@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c081b3c9b3aeea439f183b9f33b642b, type: 3}
+  m_Name: CharacterData
+  m_EditorClassIdentifier: 
+  _currentPrefab: {fileID: 7586731778235716678, guid: c24288cba084b5240a4dbd0fe3e5a967,
+    type: 3}
+  _acceleration: 0.647
+  _maxSpeed: 5
+  _rollLength: 2.5
+  _rollForce: 7
+  _rollTime: 5
+  _currentSpeed: 0
+  _climbForceY: 5
+  _climbForceX: 7
+  _gravityVelocity: {x: 0, y: -20}
+  _direction: {x: 0, y: 0}
+  _velocity: {x: 0, y: 0}
+  _wallClimb: {x: 0, y: 0}
+  _isGrounded: 1
+  _isWallTop: 0
+  _isWall: 0
+  _isCeiling: 0
+  _isRun: 0
+  _isRoll: 0
+  _gravityValue: -20
+  _jumpForce: 12
+  _gravityScale: 1
+  _jumpHeight: 0.5
+  _jumpLength: 4
+  _jumpAmount: 2
+  _isJump: 0
+  _jumpCount: 0

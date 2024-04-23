@@ -850,6 +850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c28a4f0890828cc4d898b0d9e06a7ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterData: {fileID: 11400000, guid: 79c36d520b1e8514caa615bff87f03d5, type: 2}
   _acceleration: 0.2
   _maxSpeed: 5
   _rollLength: 2.5
@@ -874,7 +875,6 @@ MonoBehaviour:
   _jumpHeight: 0.5
   _jumpLength: 4
   _jumpAmount: 2
-  _isJump: 0
   _jumpCount: 0
 --- !u!143 &7586731778235716687
 CharacterController:

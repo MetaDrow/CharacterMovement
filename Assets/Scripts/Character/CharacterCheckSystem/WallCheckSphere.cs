@@ -10,12 +10,12 @@ public class WallCheckSphere : MonoBehaviour
     {
         if ((_wallLayerMask.value & (1 << other.transform.gameObject.layer)) > 0)
         {
-            _character._isWall = true;
+            _character._characterData._isWall = true;
         }
 
         if ((_wallTopMask.value & (1 << other.transform.gameObject.layer)) > 0)
         {
-            _character._isWallTop = true;
+            _character._characterData._isWallTop = true;
         }
     }
 
@@ -23,12 +23,12 @@ public class WallCheckSphere : MonoBehaviour
     {
         if ((_wallLayerMask.value & (1 << other.transform.gameObject.layer)) > 0)
         {
-            _character._isWall = false;
+            _character._characterData._isWall = false;
         }
 
         if ((_wallTopMask.value & (1 << other.transform.gameObject.layer)) > 0)
         {
-            _character._isWallTop = false;
+            _character._characterData._isWallTop = false;
         }
     }
 }

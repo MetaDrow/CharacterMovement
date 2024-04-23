@@ -10,7 +10,7 @@ internal class GroundCheckSphere : MonoBehaviour
     {
         if ((_groundLayerMask.value & (1 << other.transform.gameObject.layer)) > 0)
         {
-            _character._isGrounded = true;
+            _character._characterData._isGrounded = true;
         }
     }
 
@@ -18,7 +18,7 @@ internal class GroundCheckSphere : MonoBehaviour
     {
         if ((_groundLayerMask.value & (1 << other.transform.gameObject.layer)) > 0)
         {
-            _character._isGrounded = false;
+            _character._characterData._isGrounded = false;
         }
     }
 }

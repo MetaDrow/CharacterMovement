@@ -28,16 +28,16 @@ public class CharacterInputController : MonoBehaviour
     }
     private void HandleJump()
     {
-        _character._isJump = true;
+        _character._characterData._isJump = true;
     }
     private void HandleRoll()
     {
-        _character._isRoll = true;
+        _character._characterData._isRoll = true;
     }
 
     private void HandleMove(Vector2 input)
     {
-        _character._direction = input;
-        _character._isRun = true;
+        _character._characterData._direction = input;
+        _character._characterData._isRun = true;
     }
 }

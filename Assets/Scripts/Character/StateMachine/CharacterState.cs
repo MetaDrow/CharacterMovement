@@ -1,23 +1,20 @@
-﻿namespace CharacterStateMachine
+﻿namespace CharacterFiniteStateMachine
 {
-    internal abstract class State 
+    internal abstract class CharacterState
     {
-        #region  Params
-        private protected StateMachine _stateMachine;
+        private protected CharacterStateMachine _stateMachine;
         private protected Character _character;
 
-        #endregion
-        protected internal State(Character character, StateMachine stateMachine)
+        protected internal CharacterState(Character character, CharacterStateMachine stateMachine)
         {
             _stateMachine = stateMachine;
             _character = character;
         }
-        #region  Methods
+
         public virtual void Enter()
         {
-            //Debug.Log("enter state: " + this.ToString());
-        }
 
+        }
         public virtual void Exit()
         {
 
@@ -34,7 +31,6 @@
         {
 
         }
-        #endregion
     }
 }
 

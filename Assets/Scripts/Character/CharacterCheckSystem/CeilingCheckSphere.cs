@@ -9,7 +9,7 @@ public class CeilingCheckSphere : MonoBehaviour
     {
         if ((_ceilingLayerMask.value & (1 << other.transform.gameObject.layer)) > 0)
         {
-            _character._isCeiling = true;
+            _character._characterData._isCeiling = true;
         }
     }
 
@@ -17,7 +17,7 @@ public class CeilingCheckSphere : MonoBehaviour
     {
         if ((_ceilingLayerMask.value & (1 << other.transform.gameObject.layer)) > 0)
         {
-            _character._isCeiling = false;
+            _character._characterData._isCeiling = false;
 
         }
     }
