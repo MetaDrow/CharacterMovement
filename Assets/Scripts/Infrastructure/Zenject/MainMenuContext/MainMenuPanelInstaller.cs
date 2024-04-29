@@ -1,17 +1,16 @@
 using UnityEngine;
 using Zenject;
 
-public class MainMenuInstaller : MonoInstaller
+public class MainMenuPanelInstaller : MonoInstaller
 {
-    [SerializeField] private GameObject _mainMenu;
+    [SerializeField] private GameObject _abstractPanel;
     public override void InstallBindings()
     {
         MainMenuInstall();
     }
-
     private void MainMenuInstall()
     {
-        MainMenuPanel mainMenu = Container.InstantiatePrefabForComponent<MainMenuPanel>(_mainMenu);
+       MainMenuPanel mainMenu = Container.InstantiatePrefabForComponent<MainMenuPanel>(_abstractPanel);
 
         Container.Bind<MainMenuPanel>().
         FromInstance(mainMenu).

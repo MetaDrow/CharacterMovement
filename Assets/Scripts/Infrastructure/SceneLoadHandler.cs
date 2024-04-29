@@ -12,8 +12,8 @@ public class SceneLoadHandler
             SceneManager.LoadScene(1);
             _sceneIndex = 1;
         }
-        CurrentSceneIndexCheck();
     }
+
     public void LoadMainMenu()
     {
         SceneManager.LoadScene(1);
@@ -21,14 +21,7 @@ public class SceneLoadHandler
 
     public void LoadGamePlay()
     {
-        CurrentSceneIndexCheck();
         SceneManager.LoadScene(2);
-
-    }
-
-    public void LoadNextScene()
-    {
-
     }
 
     public void CurrentSceneIndexCheck()
@@ -37,6 +30,4 @@ public class SceneLoadHandler
 
         Debug.Log($"Current index = {currnetSceneIndex}");
     }
-
-
 }

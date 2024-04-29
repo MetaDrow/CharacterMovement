@@ -17,7 +17,7 @@ MonoBehaviour:
   _acceleration: 0.647
   _maxSpeed: 5
   _rollLength: 2.5
-  _rollForce: 7
+  _rollForce: 11.1
   _rollTime: 5
   _currentSpeed: 0
   _climbForceY: 5
@@ -25,7 +25,7 @@ MonoBehaviour:
   _gravityVelocity: {x: 0, y: -20}
   _direction: {x: 0, y: 0}
   _velocity: {x: 0, y: 0}
-  _wallClimb: {x: 0, y: 0}
+  _wallClimb: {x: 7, y: 5}
   _isGrounded: 1
   _isWallTop: 0
   _isWall: 0

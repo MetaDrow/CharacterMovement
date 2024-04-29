@@ -9,7 +9,7 @@ TagManager:
   - Settings
   - Back
   - MainMenu
-  - SettingsMenu
+  - SettingsPanel
   layers:
   - Default
   - TransparentFX

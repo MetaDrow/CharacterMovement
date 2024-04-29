@@ -565,5 +565,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e132639237a7074183fdc683e379bdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainMenu: {fileID: 6266192839467969779, guid: 5e39a64e78d3c094098cdee54456f837,
+  _abstractPanel: {fileID: 6266192839467969779, guid: 5e39a64e78d3c094098cdee54456f837,
     type: 3}

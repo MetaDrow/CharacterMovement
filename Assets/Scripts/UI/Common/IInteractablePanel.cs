@@ -1,7 +1,11 @@
+using System;
+using System.Collections.Generic;
+using UnityEngine;
 
-
-public interface IInteractablePanel 
+public interface IInteractablePanel
 {
-    public void ShowUpPanel(AbstractPanel abstractPanel);
-    public void HidePanel(AbstractPanel abstractPanel);
+    public void ShowPanel(IInteractablePanel panel);
+    public void HidePanel(IInteractablePanel panel);
+
+
 }
