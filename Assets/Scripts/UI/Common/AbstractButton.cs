@@ -3,7 +3,6 @@ using UnityEngine.EventSystems;
 
 public abstract class AbstractButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
 {
-
     public virtual void OnPointerClick(PointerEventData eventData)
     {
 

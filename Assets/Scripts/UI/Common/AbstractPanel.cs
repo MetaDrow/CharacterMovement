@@ -1,24 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System.Threading.Tasks;
 using UnityEngine;
 
 public abstract class AbstractPanel : MonoBehaviour, IInteractablePanel
 {
-    [SerializeField] protected static Dictionary<string, IInteractablePanel> _menuPanels = new Dictionary<string, IInteractablePanel>();
-    public virtual void ShowPanel(IInteractablePanel panel)
+    public virtual Task AsyncHidePanel()
     {
-
+       return Task.CompletedTask;
     }
 
-    public virtual void HidePanel(IInteractablePanel panel)
+    public virtual Task AsyncShowPanel()
     {
-
-    }
-
-    public virtual void Addpanel(string panelName, IInteractablePanel panel)
-    {
-
-        _menuPanels.Add(panelName, panel);
-        Debug.Log($"{panelName}, {panel} was added in dictionary");
-
+        return Task.CompletedTask;
     }
 }
+

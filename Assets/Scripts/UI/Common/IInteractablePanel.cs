@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using UnityEngine;
+using System.Threading.Tasks;
 
 public interface IInteractablePanel
 {
-    public void ShowPanel(IInteractablePanel panel);
-    public void HidePanel(IInteractablePanel panel);
-
-
+    public Task AsyncHidePanel();
+    public Task AsyncShowPanel();
 }

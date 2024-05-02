@@ -4,12 +4,11 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
-public class MainMenuPanel : AbstractPanel
+public class MainMenuPanel : BaseMainMenuPanel
 {
     private SceneLoadHandler _sceneLoadHandler;
     [SerializeField] private RectTransform _rectTransform;
     [SerializeField] internal List<MainMenuButton> _buttons;
-
     [SerializeField] private MainMenuData _mainMenuData;
 
     [Inject]
@@ -26,12 +25,10 @@ public class MainMenuPanel : AbstractPanel
             if (button.CompareTag("Play"))
             {
                 button.ButtonClick += Play;
-
             }
             else if (button.CompareTag("Settings"))
             {
                 button.ButtonClick += OpenSettings;
-
             }
         }
     }
@@ -42,65 +39,59 @@ public class MainMenuPanel : AbstractPanel
         {
             if (button.CompareTag("Play"))
             {
-
                 button.ButtonClick += Play;
-
             }
             else if (button.CompareTag("Settings"))
             {
                 button.ButtonClick -= OpenSettings;
-
             }
         }
     }
 
     public void Awake()
     {
-
         Addpanel("MainMenuPanel", this);
         _rectTransform.transform.localScale = new Vector3(0, 0, 0);
         _mainMenuData._showUpEndScaleValue = new Vector3(1, 1, 0);
         _mainMenuData._fadeInEndScaleValue = new Vector3(0, 0, 0);
     }
-
-
-    public void Start()
+    public async void Start()
     {
-        ShowPanel(this);
+        await AsyncShowPanel();
     }
 
     private async void Play()
     {
         await AsyncHidePanel();
-        _sceneLoadHandler.LoadGamePlay();
+        _sceneLoadHandler.LoadGamePlayScene();
     }
 
     private async void OpenSettings()
     {
+
         await AsyncHidePanel();
         foreach (var panel in _menuPanels)
         {
             if (panel.Key.ToString() == "SettingsPanel")
             {
-
-                panel.Value.ShowPanel(panel.Value);
+                Task showSettingsPanel  = panel.Value.AsyncShowPanel();
             }
         }
     }
 
-    public override void ShowPanel(IInteractablePanel panel)
+    public override async Task AsyncShowPanel()
     {
-        Debug.Log("Invoke show panel in the main panel menu ");
-        Tween showUpTween = _rectTransform
+        Tween showPanelTween = _rectTransform
         .DOScale(_mainMenuData._showUpEndScaleValue, _mainMenuData._duration)
         .SetEase(Ease.InOutSine);
+        await showPanelTween.AsyncWaitForCompletion();
     }
 
-    private async Task AsyncHidePanel()
+    public override async Task AsyncHidePanel()
     {
-        Tween fadeInTween = _rectTransform
+        Tween hidePanelTween = _rectTransform
         .DOScale(_mainMenuData._fadeInEndScaleValue, _mainMenuData._duration)
         .SetEase(Ease.InOutSine);
-        await fadeInTween.AsyncWaitForCompletion();
+        await hidePanelTween.AsyncWaitForCompletion();
     }
 }

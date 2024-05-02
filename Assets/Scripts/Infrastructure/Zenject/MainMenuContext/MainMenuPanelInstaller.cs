@@ -8,6 +8,7 @@ public class MainMenuPanelInstaller : MonoInstaller
     {
         MainMenuInstall();
     }
+
     private void MainMenuInstall()
     {
        MainMenuPanel mainMenu = Container.InstantiatePrefabForComponent<MainMenuPanel>(_abstractPanel);

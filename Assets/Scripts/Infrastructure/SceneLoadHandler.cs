@@ -1,33 +1,19 @@
 using UnityEngine.SceneManagement;
-using UnityEngine;
 
 public class SceneLoadHandler
 {
-    private static int _sceneIndex;
     public void Initialization()
     {
-
-        if (_sceneIndex == 0)
-        {
-            SceneManager.LoadScene(1);
-            _sceneIndex = 1;
-        }
+        LoadMainMenuScene();
     }
 
-    public void LoadMainMenu()
+    public void LoadMainMenuScene()
     {
         SceneManager.LoadScene(1);
     }
 
-    public void LoadGamePlay()
+    public void LoadGamePlayScene()
     {
         SceneManager.LoadScene(2);
-    }
-
-    public void CurrentSceneIndexCheck()
-    {
-       int currnetSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
-        Debug.Log($"Current index = {currnetSceneIndex}");
     }
 }

@@ -25,12 +25,10 @@ public class MainMenuButton : AbstractButton
         {
             _mainMenuButtonEnum = MainMenu.Play;
         }
-        
-
         _objectscale = this.transform.localScale;
         _endScaleValue = _objectscale * _scaleValue;
-
     }
+
     public override void OnPointerClick(PointerEventData eventData)
     {
         if(eventData.pointerClick)
@@ -40,7 +38,6 @@ public class MainMenuButton : AbstractButton
     }
     public override void OnPointerEnter(PointerEventData eventData)
     {
-
         transform.DOScale(_endScaleValue, _duration)
         .SetEase(Ease.InOutSine);
     }

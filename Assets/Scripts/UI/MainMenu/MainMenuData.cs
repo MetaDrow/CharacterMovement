@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 [CreateAssetMenu(menuName = "Scriptable Object/Main Menu Panel Data")]
 public class MainMenuData : ScriptableObject
 {
