@@ -11,20 +11,8 @@ public class MainMenuButton : AbstractButton
     [SerializeField] private float _duration;
     public Action ButtonClick;
 
-    internal MainMenu _mainMenuButtonEnum;
-    public enum MainMenu
-    {
-        Play,
-        Settings,
-        Exit
-    }
-
     private void Start()
     {
-        if(this.CompareTag("Play"))
-        {
-            _mainMenuButtonEnum = MainMenu.Play;
-        }
         _objectscale = this.transform.localScale;
         _endScaleValue = _objectscale * _scaleValue;
     }
@@ -36,6 +24,7 @@ public class MainMenuButton : AbstractButton
             ButtonClick?.Invoke();
         }
     }
+
     public override void OnPointerEnter(PointerEventData eventData)
     {
         transform.DOScale(_endScaleValue, _duration)
