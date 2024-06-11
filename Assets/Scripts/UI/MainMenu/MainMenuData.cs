@@ -9,5 +9,4 @@ public class MainMenuData : ScriptableObject
     [SerializeField] internal Vector3 _objectscale;
     [SerializeField] internal Vector3 _showUpEndScaleValue;
     [SerializeField] internal Vector3 _fadeInEndScaleValue;
-
 }

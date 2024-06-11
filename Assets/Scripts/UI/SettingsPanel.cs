@@ -48,7 +48,7 @@ public class SettingsPanel : BaseMainMenuPanel
         {
             if (panel.Key.ToString() == "MainMenuPanel")
             {
-                Task showSettiPanel = panel.Value.AsyncShowPanel();
+                Task showMainMenuPanel = panel.Value.AsyncShowPanel();
             }
         }
     }

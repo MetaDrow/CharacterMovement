@@ -55,6 +55,7 @@ public class MainMenuPanel : BaseMainMenuPanel
         _mainMenuData._showUpEndScaleValue = new Vector3(1, 1, 0);
         _mainMenuData._fadeInEndScaleValue = new Vector3(0, 0, 0);
     }
+
     public async void Start()
     {
         await AsyncShowPanel();
@@ -68,8 +69,8 @@ public class MainMenuPanel : BaseMainMenuPanel
 
     private async void OpenSettings()
     {
-
         await AsyncHidePanel();
+
         foreach (var panel in _menuPanels)
         {
             if (panel.Key.ToString() == "SettingsPanel")
