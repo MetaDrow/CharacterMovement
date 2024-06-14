@@ -174,5 +174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4d0ec9e02159304fae396a5d7c85a45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _character: {fileID: 7586731778235716682, guid: c24288cba084b5240a4dbd0fe3e5a967,
+    type: 3}
   _camera: {fileID: 1871530434504211979}
-  _character: {fileID: 0}

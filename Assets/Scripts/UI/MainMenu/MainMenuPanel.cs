@@ -10,14 +10,14 @@ public class MainMenuPanel : BaseMainMenuPanel
     [SerializeField] private RectTransform _rectTransform;
     [SerializeField] internal List<MainMenuButton> _buttons;
     [SerializeField] private MainMenuData _mainMenuData;
-
+    
     [Inject]
-    private void Construct(SceneLoadHandler sceneLoadHandler)
+    public  void Construct(SceneLoadHandler sceneLoadHandler)
     {
         _sceneLoadHandler = sceneLoadHandler;
         Debug.Log($"{_sceneLoadHandler} injected");
     }
-
+    
     private void OnEnable()
     {
         foreach (var button in _buttons)

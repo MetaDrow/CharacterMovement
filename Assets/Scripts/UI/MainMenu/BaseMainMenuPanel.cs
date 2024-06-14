@@ -7,4 +7,3 @@ public class BaseMainMenuPanel : AbstractPanel
 
     public virtual void Addpanel(string panelName, IInteractablePanel panel) => _menuPanels.Add(panelName, panel);
 }
-

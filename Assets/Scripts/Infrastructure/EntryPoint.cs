@@ -6,7 +6,7 @@ public class EntryPoint : MonoBehaviour
     private SceneLoadHandler _sceneLoadHandler;
 
     [Inject]
-    private void Construct(SceneLoadHandler sceneLoadhandler)
+    public void Construct(SceneLoadHandler sceneLoadhandler)
     {
         _sceneLoadHandler = sceneLoadhandler;
     }

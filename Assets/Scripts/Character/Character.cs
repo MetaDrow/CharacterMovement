@@ -1,7 +1,7 @@
 using UnityEngine;
 using CharacterFiniteStateMachine;
 
-public class Character : MonoBehaviour
+public class Character : MonoBehaviour, IDamagable
 {
     [SerializeField] internal CharacterData _characterData;
     internal CharacterController _characterController;
@@ -53,5 +53,10 @@ public class Character : MonoBehaviour
     private protected void FixedUpdate()
     {
         _stateMachine._currentState.PhysicsUpdate();
+    }
+
+    public void TakeDamage(int entryDamage)
+    {
+        _characterData.Health.Value -= entryDamage;
     }
 }

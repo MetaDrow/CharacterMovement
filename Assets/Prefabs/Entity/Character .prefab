@@ -851,31 +851,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterData: {fileID: 11400000, guid: 79c36d520b1e8514caa615bff87f03d5, type: 2}
-  _acceleration: 0.2
-  _maxSpeed: 5
-  _rollLength: 2.5
-  _rollForce: 7
-  _rollTime: 5
-  _currentSpeed: 0
-  _climbForceY: 5
-  _climbForceX: 7
-  _gravityVelocity: {x: 0, y: 0}
-  _direction: {x: 0, y: 0}
-  _velocity: {x: 0, y: 0}
-  _wallClimb: {x: 0, y: 0}
-  _isGrounded: 0
-  _isWallTop: 0
-  _isWall: 0
-  _isCeiling: 0
-  _isRun: 0
-  _isRoll: 0
-  _gravityValue: -20
-  _jumpForce: 12
-  _gravityScale: 1
-  _jumpHeight: 0.5
-  _jumpLength: 4
-  _jumpAmount: 2
-  _jumpCount: 0
 --- !u!143 &7586731778235716687
 CharacterController:
   m_ObjectHideFlags: 0

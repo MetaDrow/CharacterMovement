@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 public class MainMenuPanelInstaller : MonoInstaller
 {
     [SerializeField] private GameObject _abstractPanel;
+
     public override void InstallBindings()
     {
         MainMenuInstall();

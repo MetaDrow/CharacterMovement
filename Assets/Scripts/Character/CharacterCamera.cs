@@ -4,20 +4,20 @@ using Zenject;
 
 public class CharacterCamera : MonoBehaviour
 {
-    [SerializeField] private Character _character;
     [SerializeField] private CinemachineVirtualCamera _camera;
+    private Character _character;
 
     [Inject]
-    private void Construct(Character character)
+    public void Construct(Character character)
     {
         _character = character;
     }
+
     private void Start()
     {
         Debug.Log($"{this} is install");
-        _camera = GetComponent<CinemachineVirtualCamera>();
+        //_camera = GetComponent<CinemachineVirtualCamera>();
         SetTarget();
-
     }
 
     private void SetTarget()

@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Scriptable Object/Input Reader")]
 public class CharacterInputController : MonoBehaviour
 {
     [SerializeField] private GameInputReader _input;
@@ -16,7 +15,6 @@ public class CharacterInputController : MonoBehaviour
         _input.JumpEvent += HandleJump;
         _input.MoveEvent += HandleMove;
         _input.RollEvent += HandleRoll;
-
     }
 
     private void OnDisable()

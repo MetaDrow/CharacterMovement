@@ -1,9 +1,10 @@
+using System;
+using UniRx;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Scriptable Object/Character Data")]
 public class CharacterData : ScriptableObject
 {
-    public GameObject _currentPrefab;
     [Header("Movement Parameters")]
     [SerializeField, Range(0, 1)] protected internal float _acceleration;
     [SerializeField, Range(0, 15)] protected internal float _maxSpeed;
@@ -14,13 +15,11 @@ public class CharacterData : ScriptableObject
     [SerializeField] protected internal float _climbForceY;
     [SerializeField] protected internal float _climbForceX;
 
-
     [SerializeField] protected internal Vector2 _gravityVelocity;
     [SerializeField] protected internal Vector2 _direction;
     [SerializeField] protected internal Vector2 _velocity;
     [SerializeField] protected internal Vector2 _wallClimb;
     protected internal Vector2 _currentAnimationBlendVector;
-
 
     [SerializeField] protected internal bool _isGrounded;
     [SerializeField] protected internal bool _isWallTop;
@@ -38,4 +37,24 @@ public class CharacterData : ScriptableObject
     [SerializeField] protected internal int _jumpAmount;
     [SerializeField] protected internal bool _isJump;
     [SerializeField] protected internal int _jumpCount;
+
+    private static int _health;
+
+    public ReactiveProperty<int> Health = new ReactiveProperty<int>() { Value = _health };
+    public IReadOnlyReactiveProperty<int> HealthReadOnly
+    {
+        get
+        {
+            if (Health.Value <= 0)
+            {
+                Health.Value = 0;
+                return Health;
+            }
+            else
+            {
+                return Health;
+
+            }
+        }
+    }
 }
