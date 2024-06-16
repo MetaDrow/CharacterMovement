@@ -1,91 +1,96 @@
 ﻿using UnityEngine;
-using CharacterFiniteStateMachine;
-internal class WallState : CharacterState
+using Platformer.Character;
+
+namespace CharacterFiniteStateMachine
 {
-    private float _slideForce;
-    private int _autoSlideTime = 50;
-    internal WallState(Character character, CharacterStateMachine stateMachine) : base(character, stateMachine)
+    internal class WallState : CharacterState
     {
-    }
-
-    public override void Enter()
-    {
-        _character._characterData._isWall = true;
-        _character._characterData._jumpCount = 0;
-        _character._animator.SetBool("Wall", true);
-        _character._characterData._gravityVelocity.y = _character._characterData._gravityValue;
-        _slideForce = -5f;
-    }
-    public override void Exit()
-    {
-        _character._characterData._isWall = false;
-        _autoSlideTime = 50;
-        _character._animator.SetBool("Wall", false);
-    }
-
-    public override void HandleInput()
-    {
-
-    }
-
-    public override void PhysicsUpdate()
-    {
-        AutoSlideTimer();
-
-        if (_character._characterData._velocity.x != _character._characterData._direction.x * _character._characterData._maxSpeed)
+        private float _slideForce;
+        private int _autoSlideTime = 50;
+        internal WallState(Character character, CharacterStateMachine stateMachine) : base(character, stateMachine)
         {
-            _character._characterData._velocity.x = _character._characterData._direction.x * _character._characterData._maxSpeed;
         }
 
-        if (_character._characterData._direction.y < 0)
+        public override void Enter()
         {
-            Slide();
+            _character._characterData._isWall = true;
+            _character._characterData._jumpCount = 0;
+            _character._animator.SetBool("Wall", true);
+            _character._characterData._gravityVelocity.y = _character._characterData._gravityValue;
+            _slideForce = -5f;
         }
-    }
-    public override void LogicUpdate()
-    {
-
-        if (_character._characterData._isJump)
+        public override void Exit()
         {
-            _stateMachine.ChangeState(_character._jumpState);
-        }
-    }
-
-    void Slide()
-    {
-        if (!_character._characterData._isWall && !_character._characterData._isJump)
-        {
-            _stateMachine.ChangeState(_character._groundState);
+            _character._characterData._isWall = false;
+            _autoSlideTime = 50;
+            _character._animator.SetBool("Wall", false);
         }
 
-        _character._characterData._velocity = new Vector3(0, _character._characterData._direction.y * _character._characterData._maxSpeed);
-        _character._characterController.Move(_character._characterData._velocity * Time.fixedDeltaTime);
-    }
-
-    void SlideDown()
-    {
-        if (_character._characterData._isWall && !_character._characterData._isJump)
+        public override void HandleInput()
         {
-            _character._characterData._velocity = new Vector3(0, _slideForce);
+
+        }
+
+        public override void PhysicsUpdate()
+        {
+            AutoSlideTimer();
+
+            if (_character._characterData._velocity.x != _character._characterData._direction.x * _character._characterData._maxSpeed)
+            {
+                _character._characterData._velocity.x = _character._characterData._direction.x * _character._characterData._maxSpeed;
+            }
+
+            if (_character._characterData._direction.y < 0)
+            {
+                Slide();
+            }
+        }
+        public override void LogicUpdate()
+        {
+
+            if (_character._characterData._isJump)
+            {
+                _stateMachine.ChangeState(_character._jumpState);
+            }
+        }
+
+        void Slide()
+        {
+            if (!_character._characterData._isWall && !_character._characterData._isJump)
+            {
+                _stateMachine.ChangeState(_character._groundState);
+            }
+
+            _character._characterData._velocity = new Vector3(0, _character._characterData._direction.y * _character._characterData._maxSpeed);
             _character._characterController.Move(_character._characterData._velocity * Time.fixedDeltaTime);
         }
-        else
+
+        void SlideDown()
         {
-            _stateMachine.ChangeState(_character._groundState);
+            if (_character._characterData._isWall && !_character._characterData._isJump)
+            {
+                _character._characterData._velocity = new Vector3(0, _slideForce);
+                _character._characterController.Move(_character._characterData._velocity * Time.fixedDeltaTime);
+            }
+            else
+            {
+                _stateMachine.ChangeState(_character._groundState);
+            }
+        }
+
+        void AutoSlideTimer()
+        {
+
+            if (_autoSlideTime != 0)
+            {
+                _autoSlideTime--;
+            }
+            else
+            {
+                SlideDown();
+            }
         }
     }
 
-    void AutoSlideTimer()
-    {
-
-        if (_autoSlideTime != 0)
-        {
-            _autoSlideTime--;
-        }
-        else
-        {
-            SlideDown();
-        }
-    }
 }
 

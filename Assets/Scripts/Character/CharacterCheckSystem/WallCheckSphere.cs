@@ -1,4 +1,6 @@
 using UnityEngine;
+using Platformer.Character;
+
 
 public class WallCheckSphere : MonoBehaviour
 {

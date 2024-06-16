@@ -1,33 +1,38 @@
-﻿using CharacterFiniteStateMachine;
-internal class GroundState : CharacterState
+﻿using Platformer.Character;
+
+namespace CharacterFiniteStateMachine
 {
-    public GroundState(Character character, CharacterStateMachine stateMachine) : base(character, stateMachine)
+    internal class GroundState : CharacterState
     {
-    }
-
-    public override void Enter()
-    {
-        _character._characterData._jumpCount = 0;
-        _character._characterData._gravityVelocity.y = _character._characterData._gravityValue;
-    }
-
-    public override void PhysicsUpdate()
-    {
-
-        if (!_character._characterData._isGrounded)
+        public GroundState(Character character, CharacterStateMachine stateMachine) : base(character, stateMachine)
         {
-            _stateMachine.ChangeState(_character._airState);
         }
 
-        if (_character._characterData._isGrounded && _character._characterData._direction.x != 0)
+        public override void Enter()
         {
-            _stateMachine.ChangeState(_character._runState);
+            _character._characterData._jumpCount = 0;
+            _character._characterData._gravityVelocity.y = _character._characterData._gravityValue;
         }
 
-        if (_character._characterData._isGrounded && _character._characterData._direction.x == 0)
+        public override void PhysicsUpdate()
         {
-            _stateMachine.ChangeState(_character._standingState);
+
+            if (!_character._characterData._isGrounded)
+            {
+                _stateMachine.ChangeState(_character._airState);
+            }
+
+            if (_character._characterData._isGrounded && _character._characterData._direction.x != 0)
+            {
+                _stateMachine.ChangeState(_character._runState);
+            }
+
+            if (_character._characterData._isGrounded && _character._characterData._direction.x == 0)
+            {
+                _stateMachine.ChangeState(_character._standingState);
+            }
         }
     }
 }
+
 

@@ -1,9 +1,13 @@
-﻿using CharacterFiniteStateMachine;
+﻿using Platformer.Character;
 
-internal class DeathState : CharacterState
+namespace CharacterFiniteStateMachine
 {
-    public DeathState(Character character, CharacterStateMachine stateMachine) : base(character, stateMachine)
+    internal class DeathState : CharacterState
     {
+        public DeathState(Character character, CharacterStateMachine stateMachine) : base(character, stateMachine)
+        {
+        }
     }
 }
+
 

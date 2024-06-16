@@ -1,6 +1,7 @@
 using Cinemachine;
 using UnityEngine;
 using Zenject;
+using Platformer.Character;
 
 public class CharacterCamera : MonoBehaviour
 {

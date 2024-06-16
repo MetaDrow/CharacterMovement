@@ -1,5 +1,6 @@
 ﻿using UniRx;
 using UnityEngine;
+using Platformer.Character;
 
 namespace HealthSystem
 {

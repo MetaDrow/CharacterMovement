@@ -1,4 +1,6 @@
-﻿namespace CharacterFiniteStateMachine
+﻿using Platformer.Character;
+
+namespace CharacterFiniteStateMachine
 {
     internal abstract class CharacterState
     {

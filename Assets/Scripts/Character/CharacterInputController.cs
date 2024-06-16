@@ -1,4 +1,5 @@
 using UnityEngine;
+using Platformer.Character;
 
 public class CharacterInputController : MonoBehaviour
 {

@@ -1,5 +1,6 @@
 using UnityEngine;
 using Zenject;
+using Platformer.Character;
 
 public class CharacterInstaller : MonoInstaller
 {
