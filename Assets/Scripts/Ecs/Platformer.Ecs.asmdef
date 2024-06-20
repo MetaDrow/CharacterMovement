@@ -1,0 +1,19 @@
+{
+    "name": "Platformer.Ecs",
+    "rootNamespace": "",
+    "references": [
+        "GUID:656c2c43d3cfe4855bd40e058874b0be",
+        "GUID:0104ae351448541ee9a4ab55eb9d8b69",
+        "GUID:1e04b45c7f2cd534cbde79d2cbb0424d",
+        "GUID:4307f53044263cf4b835bd812fc161a4"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

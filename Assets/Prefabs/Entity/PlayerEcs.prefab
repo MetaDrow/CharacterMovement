@@ -134,7 +134,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   _groundSphereRadius: 0.5
-  _characterData: {fileID: 11400000, guid: 79c36d520b1e8514caa615bff87f03d5, type: 2}
+  _characterData: {fileID: 11400000, guid: ce687fcb367e78e4a8676cc9e3625049, type: 2}
 --- !u!135 &7586731777691610075
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -811,7 +811,7 @@ GameObject:
   - component: {fileID: 7586731778235716686}
   - component: {fileID: 7510991945500044276}
   m_Layer: 0
-  m_Name: 'Character '
+  m_Name: PlayerEcs
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -845,12 +845,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7586731778235716678}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c28a4f0890828cc4d898b0d9e06a7ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterData: {fileID: 11400000, guid: 79c36d520b1e8514caa615bff87f03d5, type: 2}
+  CharacterData: {fileID: 0}
 --- !u!143 &7586731778235716687
 CharacterController:
   m_ObjectHideFlags: 0
@@ -972,7 +972,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7586731778235716678}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00baf07de8735e946b83cdf610063b96, type: 3}
   m_Name: 
@@ -1529,7 +1529,7 @@ MonoBehaviour:
   _wallTopMask:
     serializedVersion: 2
     m_Bits: 128
-  _characterData: {fileID: 11400000, guid: 79c36d520b1e8514caa615bff87f03d5, type: 2}
+  _characterData: {fileID: 11400000, guid: ce687fcb367e78e4a8676cc9e3625049, type: 2}
 --- !u!135 &7586731779136849212
 SphereCollider:
   m_ObjectHideFlags: 0
