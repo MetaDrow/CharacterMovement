@@ -5,6 +5,7 @@ using UniRx;
 using UnityEngine;
 
 [assembly: InternalsVisibleTo("Platformer.Ecs")]
+[assembly: InternalsVisibleTo("PlatformerCoreTests")]
 namespace Platformer.Character
 {
     [CreateAssetMenu(menuName = "Scriptable Object/Character Data")]

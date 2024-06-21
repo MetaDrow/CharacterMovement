@@ -15,7 +15,9 @@ namespace HealthSystem
         {
             _healthModel = new CharacterHealthModel(_healthView, _characterData, _disposable);
             _healthModel.InitializationCharacterHealthView();
+            _healthModel.CharacterInitHealthValue();
             _healthModel.ChangeCharacterHealthView();
+
         }
 
         private void OnDestroy()

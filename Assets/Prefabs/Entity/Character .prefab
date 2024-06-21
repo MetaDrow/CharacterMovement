@@ -850,7 +850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c28a4f0890828cc4d898b0d9e06a7ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterData: {fileID: 11400000, guid: 79c36d520b1e8514caa615bff87f03d5, type: 2}
+  _characterData: {fileID: 11400000, guid: 79c36d520b1e8514caa615bff87f03d5, type: 2}
 --- !u!143 &7586731778235716687
 CharacterController:
   m_ObjectHideFlags: 0

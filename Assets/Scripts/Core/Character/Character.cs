@@ -7,22 +7,22 @@ namespace Platformer.Character
     {
         internal CharacterStateMachine _stateMachine;
 
-        [SerializeField] private CharacterData CharacterData;
+        [SerializeField] internal protected CharacterData _characterData;
 
         public CharacterData Data
         {
             get
             {
-                return CharacterData;
+                return _characterData;
             }
 
             set
             {
-                value = CharacterData;
+                value = _characterData;
 
             }
         }
-        public UnityEngine.CharacterController CharacterController { get; set; }
+        public CharacterController CharacterController { get; set; }
         public Animator Animator { get; set; }
         public Transform PlayerTransform { get; set; }
 
@@ -30,7 +30,7 @@ namespace Platformer.Character
         private void Awake()
         {
             PlayerTransform = this.transform;
-            CharacterController = GetComponent<UnityEngine.CharacterController>();
+            CharacterController = GetComponent<CharacterController>();
             Animator = GetComponent<Animator>();
         }
 
