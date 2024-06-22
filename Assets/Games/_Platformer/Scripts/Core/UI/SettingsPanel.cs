@@ -1,7 +1,9 @@
 using DG.Tweening;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using UnityEngine;
+
 
 public class SettingsPanel : BaseMainMenuPanel
 {
