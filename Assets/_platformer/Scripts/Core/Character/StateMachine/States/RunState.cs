@@ -62,16 +62,18 @@ namespace CharacterFiniteStateMachine
                 _stateMachine.ChangeState(_character.Data._standingState);
             }
 
-        }
 
-        public override void PhysicsUpdate()
-        {
             if (_character.Data._currentSpeed < _character.Data._maxSpeed && _character.Data._direction.x != 0)
             {
                 _character.Data._currentSpeed += _character.Data._acceleration;
             }
 
             _character.Data._velocity = new Vector2(_character.Data._direction.x * _character.Data._currentSpeed, _character.Data._gravityVelocity.y);
+        }
+
+        public override void PhysicsUpdate()
+        {
+
             _character.CharacterController.Move(_character.Data._velocity * Time.fixedDeltaTime);
         }
     }

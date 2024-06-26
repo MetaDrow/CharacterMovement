@@ -32,17 +32,7 @@ namespace CharacterFiniteStateMachine
 
 
 
-        public override void PhysicsUpdate()
-        {
-            _character.Data._velocity = new Vector3(_character.Data._direction.x * _character.Data._jumpLength, _character.Data._gravityVelocity.y);
 
-            _character.CharacterController.Move(_character.Data._velocity * Time.fixedDeltaTime);
-
-            if (_character.PlayerTransform.position.y >= _jumpPosition)
-            {
-                _stateMachine.ChangeState(_character.Data._airState);
-            }
-        }
 
         public override void LogicUpdate()
         {
@@ -61,6 +51,19 @@ namespace CharacterFiniteStateMachine
                 _stateMachine.ChangeState(_character.Data._climbState);
             }
         }
+
+        public override void PhysicsUpdate()
+        {
+            _character.Data._velocity = new Vector3(_character.Data._direction.x * _character.Data._jumpLength, _character.Data._gravityVelocity.y);
+
+            _character.CharacterController.Move(_character.Data._velocity * Time.fixedDeltaTime);
+
+            if (_character.PlayerTransform.position.y >= _jumpPosition)
+            {
+                _stateMachine.ChangeState(_character.Data._airState);
+            }
+        }
+
         void Jump()
         {
             _character.Data._gravityVelocity.y += Mathf.Sqrt(_character.Data._jumpForce * -3f * _character.Data._gravityValue);

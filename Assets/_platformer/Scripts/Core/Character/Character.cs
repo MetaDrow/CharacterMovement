@@ -60,6 +60,7 @@ namespace Platformer.Character
 
         private protected void FixedUpdate()
         {
+
             _stateMachine._currentState.PhysicsUpdate();
         }
 
