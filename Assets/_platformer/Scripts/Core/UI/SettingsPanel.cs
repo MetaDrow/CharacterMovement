@@ -44,15 +44,17 @@ public class SettingsPanel : BaseMainMenuPanel
 
     private async void Back()
     {
-        await AsyncHidePanel();
+
 
         foreach (var panel in _menuPanels)
         {
             if (panel.Key.ToString() == "MainMenuPanel")
             {
                 Task showMainMenuPanel = panel.Value.AsyncShowPanel();
+                //return showMainMenuPanel;
             }
         }
+        await AsyncHidePanel();
     }
 
     public override async Task AsyncShowPanel()
