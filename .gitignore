@@ -73,4 +73,4 @@ crashlytics-build.properties
 
 
 /Assets/*.meta
-!/Assets/_platformer/*.meta
+!/Assets/_[Pp]latformer/*.meta
